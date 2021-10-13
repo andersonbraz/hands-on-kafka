@@ -71,7 +71,7 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic MY_TOPIC
 ### Check Describe Topics
 
 ```
-bin/kafka-console-producer.sh --describe --bootstrap-server localhost:9092 
+bin/kafka-topics.sh --describe --bootstrap-server localhost:9092
 ```
 
 ### Delete Topic
