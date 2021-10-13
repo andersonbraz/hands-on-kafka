@@ -50,22 +50,45 @@ bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 ### Check Topics
 
 ```
-bin/kafka-console-producer.sh --broker-list localhost:9092 --topic AMOSTRA_NOVO_ITEM
+bin/kafka-console-producer.sh --broker-list --bootstrap-server localhost:9092 --topic MY_TOPIC_NAME
 
 ```
 
 ### Check Write Input
 
 ```
-Item1, Alpha, 100
-Item2, Beta, 200
-Item3, Charlie, 300
-Item4, Delta, 400
-Item5, Echo, 500
+1, Test
+2, Test
+3, Test
 ```
 
 ### Check Read Streams
 
 ```
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic AMOSTRA_NOVO_ITEM --from-beginning
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic MY_TOPIC_NAME --from-beginning
 ```
+
+### Check Describe Topics
+
+```
+bin/kafka-console-producer.sh --describe --bootstrap-server localhost:9092 
+```
+
+### Delete Topic
+
+Before Edit file
+
+```
+vim config/server.properties
+```
+
+And add parameter
+
+```
+delete.topic.enable=true
+```
+
+```
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic MY_TOPIC_NAME
+```
+
