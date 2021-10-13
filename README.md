@@ -7,6 +7,13 @@
 wget https://dlcdn.apache.org/kafka/3.0.0/kafka_2.12-3.0.0.tgz
 ```
 
+
+## Extract Package
+
+```
+tar zxf kafka_2.12-3.0.0.tgz
+```
+
 ## Check Folder
 
 ```
