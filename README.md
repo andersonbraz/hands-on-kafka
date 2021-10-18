@@ -92,3 +92,18 @@ delete.topic.enable=true
 bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic MY_TOPIC_NAME
 ```
 
+
+
+```
+#!/bin/bash
+
+TABLE_NAME=TableName
+KEY=id
+
+aws dynamodb scan --table-name $TABLE_NAME --attributes-to-get "$KEY" \
+  --query "Items[].$KEY.S" --output text | \
+  tr "\t" "\n" | \
+  xargs -t -I keyvalue aws dynamodb delete-item --table-name $TABLE_NAME \
+  --key "{\"$KEY\": {\"S\": \"keyvalue\"}}"
+  
+```
