@@ -107,3 +107,7 @@ aws dynamodb scan --table-name $TABLE_NAME --attributes-to-get "$KEY" \
   --key "{\"$KEY\": {\"S\": \"keyvalue\"}}"
   
 ```
+
+```
+aws dynamodb batch-write-item --request-items file://SampleData.json
+```
