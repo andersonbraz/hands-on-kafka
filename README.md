@@ -50,7 +50,7 @@ bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 ### Check Topics
 
 ```
-bin/kafka-console-producer.sh --broker-list --bootstrap-server localhost:9092 --topic MY_TOPIC_NAME
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic MY_TOPIC_NAME
 
 ```
 
