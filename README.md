@@ -38,7 +38,7 @@ bin/kafka-server-start.sh config/server.properties
 ### Create Topic
 
 ```
-bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic MY_TOPIC_NAME
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic MY_TOPIC_EXAMPLE
 ```
 
 ### List Topics
@@ -50,7 +50,7 @@ bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 ### Check Topics
 
 ```
-bin/kafka-console-producer.sh --broker-list localhost:9092 --topic MY_TOPIC_NAME
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic MY_TOPIC_EXAMPLE
 
 ```
 
@@ -65,7 +65,7 @@ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic MY_TOPIC_NAME
 ### Check Read Streams
 
 ```
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic MY_TOPIC_NAME --from-beginning
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic MY_TOPIC_EXAMPLE --from-beginning
 ```
 
 ### Check Describe Topics
@@ -89,25 +89,5 @@ delete.topic.enable=true
 ```
 
 ```
-bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic MY_TOPIC_NAME
-```
-
-
-
-```
-#!/bin/bash
-
-TABLE_NAME=TableName
-KEY=id
-
-aws dynamodb scan --table-name $TABLE_NAME --attributes-to-get "$KEY" \
-  --query "Items[].$KEY.S" --output text | \
-  tr "\t" "\n" | \
-  xargs -t -I keyvalue aws dynamodb delete-item --table-name $TABLE_NAME \
-  --key "{\"$KEY\": {\"S\": \"keyvalue\"}}"
-  
-```
-
-```
-aws dynamodb batch-write-item --request-items file://SampleData.json
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic MY_TOPIC_EXAMPLE
 ```
